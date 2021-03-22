@@ -35,11 +35,11 @@ const Header = () => {
       justify="space-between"
       alignItems="flex-end"
       className={classes.mainContainer} >
-      <Link to="/">
-        <Grid item className={classes.tag}>
+      <Grid item className={classes.tag}>
+        <Link to="/">
           <Tag />
-        </Grid>
-      </Link>
+        </Link>
+      </Grid>
       <Grid item className={classes.links}>
         <Grid
           container

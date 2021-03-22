@@ -13,7 +13,7 @@ const Landing = () => {
 
   return (
     <div className={classes.mainContainer}>
-      Landing
+      <h1 style={{ textAlign: "center", marginTop: "50%" }}>Landing</h1>
     </div>
   )
 }
