@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Tag from './Tag'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Grid,
@@ -19,16 +19,21 @@ const useStyles = makeStyles((theme) => ({
   },
   tag: {
     position: 'absolute',
-    left: 393
+    left: 393,
+    margin: 0
   },
   links: {
     position: 'absolute',
     right: 486
+  },
+  link: {
+    color: theme.palette.common.black
   }
 }))
 
 const Header = () => {
   const classes = useStyles()
+
   return (
     <Grid
       container
@@ -36,7 +41,7 @@ const Header = () => {
       alignItems="flex-end"
       className={classes.mainContainer} >
       <Grid item className={classes.tag}>
-        <Link to="/">
+        <Link to="/" underline="none" className={classes.link} >
           <Tag />
         </Link>
       </Grid>
@@ -47,21 +52,21 @@ const Header = () => {
           className={classes.linkContainer}
         >
           <Grid item>
-            <Link to="/work">
+            <Link to="/work" underline="none" className={classes.link}>
               <Typography>
                 work
           </Typography>
             </Link>
           </Grid>
           <Grid item>
-            <Link to="/about">
+            <Link to="/about" underline="none" className={classes.link} >
               <Typography>
                 about
           </Typography>
             </Link>
           </Grid>
           <Grid item>
-            <Link to="/more">
+            <Link to="/more" underline="none" className={classes.link}>
               <Typography>
                 more
           </Typography>
@@ -69,7 +74,7 @@ const Header = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Grid >
   )
 }
 

@@ -1,12 +1,11 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Tag from './Tag'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import {
   Grid,
   IconButton,
-  Typography,
-  Link
+  Typography
 } from '@material-ui/core'
 import hero from '../../images/hero HP@2x.png'
 
@@ -56,13 +55,15 @@ const useStyles = makeStyles((theme) => ({
     width: '134px'
   },
   follow: {
+    fontFamily: 'Raleway Dots',
     width: "266px",
     position: 'absolute',
     bottom: '138px',
     right: '392.5px',
-    color: theme.palette.common.white
+    color: theme.palette.common.white,
   },
   line: {
+    fontFamily: 'Raleway Dots',
     width: '95px'
   },
   text: {
@@ -90,7 +91,7 @@ const Footer = () => {
   const theme = useTheme()
   return (
     <footer className={classes.mainContainer}>
-      <Link href="/" underline="none">
+      <Link to="/" underline="none">
         <div className={classes.tag}>
           <Tag />
         </div>
@@ -104,21 +105,21 @@ const Footer = () => {
         className={classes.linkContainer}
       >
         <Grid item>
-          <Link href="/work" underline="none">
+          <Link to="/work">
             <Typography variant="h4" className={classes.link}>
               work
           </Typography>
           </Link>
         </Grid>
         <Grid item>
-          <Link href="/about" underline="none">
+          <Link to="/about">
             <Typography variant="h4" className={classes.link}>
               about
           </Typography>
           </Link>
         </Grid>
         <Grid item>
-          <Link href="/more" underline="none">
+          <Link to="/more">
             <Typography variant="h4" className={classes.link}>
               more
           </Typography>
@@ -137,7 +138,7 @@ const Footer = () => {
               <hr />
             </Grid>
             <Grid item className={classes.text}>
-              <Typography variant="subtitle1">follow</Typography>
+              <Typography variant="subtitle1" style={{ fontFamily: 'Raleway Dots' }}>follow</Typography>
             </Grid>
             <Grid item className={classes.line}>
               <hr />

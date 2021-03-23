@@ -1,12 +1,16 @@
 import React from 'react'
+import {
+  Typography
+} from '@material-ui/core'
 
 const Tag = () => {
   return (
-    <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
-      <span style={{ fontSize: '23px', fontWeight: 500, marginRight: '6px' }}>&lt;</span>
-      <span style={{ fontWeight: 300 }}>L</span>
-        D<span style={{ fontSize: '25px', fontWeight: 900, marginLeft: '6px' }}>/&gt;</span>
-    </h3>
+    <Typography component="div" variant="h6" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 0 }}>
+      <div style={{ fontSize: '23px', fontWeight: 500, marginRight: '6px' }}>&lt;</div>
+      <div style={{ fontWeight: 300 }}>L</div>
+        D<div style={{ fontSize: '25px', fontWeight: 900, marginLeft: '6px' }}>/</div>
+      <div style={{ fontSize: '25px', fontWeight: 900, marginLeft: '6px' }}>&gt;</div>
+    </Typography>
   )
 }
 
