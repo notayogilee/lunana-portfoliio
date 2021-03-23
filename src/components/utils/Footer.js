@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Tag from './Tag'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import {
   Grid,
   IconButton,
-  Typography
+  Typography,
+  Link
 } from '@material-ui/core'
 import hero from '../../images/hero HP@2x.png'
 
@@ -17,7 +18,29 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     bottom: 0
   },
+  tag: {
+    position: 'absolute',
+    top: '55px',
+    left: '393px',
+    color: theme.palette.common.white,
+    height: '57.44px',
+    width: '130.7px'
+  },
+  linkContainer: {
+    height: '140px',
+    width: '96px',
+    position: 'absolute',
+    top: '141px',
+    left: '432px',
+    color: theme.palette.common.white
+  },
+  link: {
+    fontFamily: 'Raleway Dots',
+    fontWeight: 400,
+    color: theme.palette.common.white
+  },
   copyright: {
+    fontFamily: 'Raleway Dots',
     color: theme.palette.common.white,
     position: 'absolute',
     display: 'block',
@@ -67,6 +90,42 @@ const Footer = () => {
   const theme = useTheme()
   return (
     <footer className={classes.mainContainer}>
+      <Link href="/" underline="none">
+        <div className={classes.tag}>
+          <Tag />
+        </div>
+      </Link>
+
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justify="center"
+        className={classes.linkContainer}
+      >
+        <Grid item>
+          <Link href="/work" underline="none">
+            <Typography variant="h4" className={classes.link}>
+              work
+          </Typography>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link href="/about" underline="none">
+            <Typography variant="h4" className={classes.link}>
+              about
+          </Typography>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link href="/more" underline="none">
+            <Typography variant="h4" className={classes.link}>
+              more
+          </Typography>
+          </Link>
+        </Grid>
+      </Grid>
+
       <Grid container direction="column">
         <Grid item>
           <img src={hero} alt="hero" className={classes.hero} />
@@ -77,17 +136,13 @@ const Footer = () => {
             <Grid item className={classes.line}>
               <hr />
             </Grid>
-
             <Grid item className={classes.text}>
               <Typography variant="subtitle1">follow</Typography>
             </Grid>
-
             <Grid item className={classes.line}>
               <hr />
             </Grid>
-
           </Grid>
-
         </Grid>
 
 
