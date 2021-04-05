@@ -2,8 +2,7 @@ import React from 'react'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import {
   Grid,
-  Typography,
-
+  Typography
 } from '@material-ui/core'
 import hovered from '../../images/category hover@2x.png'
 
@@ -27,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     left: '121.5px',
     borderRadius: '5px',
-    transform: 'translateY(2px)',
-    transform: 'translateX(-105px)'
+    transform: 'translate( -105px, 2px)',
+    animation: `$lineGrow 0.75s ${theme.transitions.easing.easeInOut}`
   },
   shadow: {
     position: 'absolute',
@@ -36,16 +35,50 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.25,
     height: '98px',
     width: '259px',
-    top: '35px',
-    left: 0
+    top: '445px',
+    left: '17px',
+    animation: `$showShadow 0.6s ${theme.transitions.easing.easeInOut}`
   },
   bottomBlock: {
     position: 'absolute',
     background: theme.palette.common.blue,
     height: '10px',
     width: '259px',
-    left: 0,
-    top: '156px'
+    left: '17px',
+    top: '566px',
+    animation: `$showBlock 0.75s ${theme.transitions.easing.easeInOut}`
+  },
+  "@keyframes lineGrow": {
+    "0%": {
+      background: theme.palette.common.white,
+      width: '50px',
+      left: '228px'
+    },
+    "100%": {
+      background: theme.palette.common.black,
+      width: '259px',
+      left: '121.5px'
+    }
+  },
+  "@keyframes showShadow": {
+    "0%": {
+      opacity: 0,
+      transform: 'translateY(-30px)',
+    },
+    "100%": {
+      opacity: 0.25,
+      transform: 'translateY(0)',
+    }
+  },
+  "@keyframes showBlock": {
+    "0%": {
+      width: 0,
+      transform: 'translateX(130px)'
+    },
+    "100%": {
+      width: '259px',
+
+    }
   }
 }))
 
@@ -61,10 +94,10 @@ const Skill = ({ label }) => {
     >
       <Grid item className={classes.image}>
         <img src={hovered} alt="digital" />
-        <div className={classes.line}>
-          <div className={classes.shadow}></div>
-          <div className={classes.bottomBlock}></div>
-        </div>
+        <div className={classes.line}> </div>
+        <div className={classes.shadow}></div>
+        <div className={classes.bottomBlock}></div>
+
       </Grid>
       <Grid item className={classes.imageText}>
         <Typography variant="h3" align="center">
