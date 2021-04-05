@@ -5,6 +5,7 @@ import {
   Typography,
   Grid
 } from '@material-ui/core'
+import Skill from '../utils/Skill'
 import hero from '../../images/HERO - GIF@2x.png'
 import unhovered from '../../images/Artwork 1@2x.png'
 import about from '../../images/about index@2x.png'
@@ -80,27 +81,27 @@ const useStyles = makeStyles((theme) => ({
     top: '883px',
     left: '394px'
   },
-  image: {
-    height: '410px',
-    width: '293px',
-    position: 'relative'
-  },
-  imageText: {
-    height: '115px',
-    width: '293px',
-    paddingTop: '26px',
-    background: '#e6e6e6'
-  },
-  line: {
-    position: 'absolute',
-    background: theme.palette.common.white,
-    height: '4px',
-    width: '50px',
-    bottom: 0,
-    left: '121.5px',
-    borderRadius: '5px',
-    transform: 'translateY(2px)'
-  },
+  // image: {
+  //   height: '410px',
+  //   width: '293px',
+  //   position: 'relative'
+  // },
+  // imageText: {
+  //   height: '115px',
+  //   width: '293px',
+  //   paddingTop: '26px',
+  //   background: '#e6e6e6'
+  // },
+  // line: {
+  //   position: 'absolute',
+  //   background: theme.palette.common.white,
+  //   height: '4px',
+  //   width: '50px',
+  //   bottom: 0,
+  //   left: '121.5px',
+  //   borderRadius: '5px',
+  //   transform: 'translateY(2px)'
+  // },
   aboutSection: {
     position: 'absolute',
     height: '343px',
@@ -165,45 +166,16 @@ const Landing = () => {
         <img src={hero} alt="hero" />
       </div>
 
+      {/* items */}
       <Grid container className={classes.main} justify="space-between" alignItems="flex-start" spacing={0}>
         <Grid item>
-          <Grid container direction="column">
-            <Grid item className={classes.image}>
-              <img src={unhovered} alt="digital" />
-              <div className={classes.line}></div>
-            </Grid>
-            <Grid item className={classes.imageText}>
-              <Typography variant="h3" align="center">
-                digital
-            </Typography>
-            </Grid>
-          </Grid>
+          <Skill label={"digital"} />
         </Grid>
         <Grid item>
-          <Grid container direction="column">
-            <Grid item className={classes.image}>
-              <img src={unhovered} alt="graphic" />
-              <div className={classes.line}></div>
-            </Grid>
-            <Grid item >
-              <Typography variant="h3" align="center" className={classes.imageText}>
-                graphic
-            </Typography>
-            </Grid>
-          </Grid>
+          <Skill label={"graphic"} />
         </Grid>
         <Grid item>
-          <Grid container direction="column">
-            <Grid item className={classes.image}>
-              <img src={unhovered} alt="frontend" />
-              <div className={classes.line}></div>
-            </Grid>
-            <Grid item>
-              <Typography variant="h3" align="center" className={classes.imageText}>
-                frontend
-            </Typography>
-            </Grid>
-          </Grid>
+          <Skill label={"frontend"} />
         </Grid>
       </Grid>
 
