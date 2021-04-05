@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -6,8 +6,8 @@ import {
   Grid
 } from '@material-ui/core'
 import Skill from '../utils/Skill'
+import HoveredSkill from '../utils/HoveredSkill'
 import hero from '../../images/HERO - GIF@2x.png'
-import unhovered from '../../images/Artwork 1@2x.png'
 import about from '../../images/about index@2x.png'
 
 const useStyles = makeStyles((theme) => ({
@@ -81,27 +81,6 @@ const useStyles = makeStyles((theme) => ({
     top: '883px',
     left: '394px'
   },
-  // image: {
-  //   height: '410px',
-  //   width: '293px',
-  //   position: 'relative'
-  // },
-  // imageText: {
-  //   height: '115px',
-  //   width: '293px',
-  //   paddingTop: '26px',
-  //   background: '#e6e6e6'
-  // },
-  // line: {
-  //   position: 'absolute',
-  //   background: theme.palette.common.white,
-  //   height: '4px',
-  //   width: '50px',
-  //   bottom: 0,
-  //   left: '121.5px',
-  //   borderRadius: '5px',
-  //   transform: 'translateY(2px)'
-  // },
   aboutSection: {
     position: 'absolute',
     height: '343px',
@@ -120,8 +99,8 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: 0,
     left: '134px',
-    background: '#00FFFF 0% 0% no-repeat padding-box', // ask about this
-    mixBlendMode: 'multiply', // ask about this - really cool
+    background: '#00FFFF 0% 0% no-repeat padding-box',
+    mixBlendMode: 'multiply',
     height: '195px',
     width: '195px'
   },
@@ -150,6 +129,14 @@ const useStyles = makeStyles((theme) => ({
 const Landing = () => {
   const classes = useStyles()
 
+  const [hover, setHover] = useState(false)
+  const [hovered, setHovered] = useState(0)
+
+  const handleMouseLeave = () => {
+    setHover(false)
+    setHovered(0)
+  }
+
   return (
     <div className={classes.mainContainer}>
 
@@ -168,14 +155,42 @@ const Landing = () => {
 
       {/* items */}
       <Grid container className={classes.main} justify="space-between" alignItems="flex-start" spacing={0}>
-        <Grid item>
-          <Skill label={"digital"} />
+        <Grid
+          item
+          onMouseEnter={() => {
+            setHovered(1);
+            setHover(true);
+          }}
+          onMouseLeave={handleMouseLeave}>
+          {hover && hovered === 1 ?
+            (<HoveredSkill label={"digital"} />) :
+            (<Skill label={"digital"} />)
+          }
+
         </Grid>
-        <Grid item>
-          <Skill label={"graphic"} />
+        <Grid
+          item
+          onMouseEnter={() => {
+            setHovered(2);
+            setHover(true);
+          }}
+          onMouseLeave={handleMouseLeave}>
+          {hover && hovered === 2 ?
+            (<HoveredSkill label={"graphic"} />) :
+            (<Skill label={"graphic"} />)
+          }
         </Grid>
-        <Grid item>
-          <Skill label={"frontend"} />
+        <Grid
+          item
+          onMouseEnter={() => {
+            setHovered(3);
+            setHover(true);
+          }}
+          onMouseLeave={handleMouseLeave}>
+          {hover && hovered === 3 ?
+            (<HoveredSkill label={"frontend"} />) :
+            (<Skill label={"frontend"} />)
+          }
         </Grid>
       </Grid>
 
