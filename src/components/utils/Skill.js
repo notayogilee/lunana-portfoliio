@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     height: '115px',
     width: '293px',
     paddingTop: '26px',
-    background: theme.palette.common.grey
+    fontWeight: 'bold',
+    background: theme.palette.common.grey,
+    animation: `$removeColor 0.6s ${theme.transitions.easing.easeInOut}`
   },
   line: {
     position: 'absolute',
@@ -26,8 +28,68 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     left: '121.5px',
     borderRadius: '5px',
-    transform: 'translateY(2px)'
+    transform: 'translateY(2px)',
+    animation: `$lineShrink 0.75s ${theme.transitions.easing.easeOut}`
   },
+  shadow: {
+    position: 'absolute',
+    background: theme.palette.common.blue,
+    opacity: 0,
+    height: '98px',
+    width: '259px',
+    top: '445px',
+    left: '17px',
+    animation: `$hideShadow 0.6s ${theme.transitions.easing.easeInOut}`
+  },
+  bottomBlock: {
+    position: 'absolute',
+    background: theme.palette.common.blue,
+    height: '10px',
+    width: 0,
+    left: '17px',
+    top: '566px',
+    animation: `$hideBlock 0.6s ${theme.transitions.easing.easeOut}`
+  },
+  "@keyframes removeColor": {
+    "0%": {
+      background: theme.palette.common.blue
+    },
+    "100%": {
+      background: theme.palette.common.grey
+    },
+  },
+  "@keyframes lineShrink": {
+    "0%": {
+      background: theme.palette.common.black,
+      width: '259px',
+      left: '17px'
+    },
+    "100%": {
+      background: theme.palette.common.white,
+      width: '50px',
+      left: '121.5px'
+    },
+  },
+  "@keyframes hideShadow": {
+    "0%": {
+      opacity: 0.25,
+      transform: 'translateY(0)',
+    },
+    "100%": {
+      opacity: 0,
+      transform: 'translateY(-30px)',
+    }
+  },
+  "@keyframes hideBlock": {
+    "0%": {
+      width: '259px',
+
+    },
+    "100%": {
+      width: 0,
+      transform: 'translateX(130px)'
+    }
+  }
 }))
 
 const Skill = ({ label }) => {
@@ -43,6 +105,8 @@ const Skill = ({ label }) => {
       <Grid item className={classes.image}>
         <img src={unhovered} alt="digital" />
         <div className={classes.line}></div>
+        <div className={classes.shadow}></div>
+        <div className={classes.bottomBlock}></div>
       </Grid>
       <Grid item className={classes.imageText}>
         <Typography variant="h3" align="center">

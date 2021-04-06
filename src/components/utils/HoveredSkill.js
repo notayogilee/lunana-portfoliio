@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     height: '115px',
     width: '293px',
     paddingTop: '26px',
-    background: theme.palette.common.blue
+    background: theme.palette.common.blue,
+    animation: `$addColor 0.6s ${theme.transitions.easing.easeInOut}`
   },
   line: {
     position: 'absolute',
@@ -48,6 +49,14 @@ const useStyles = makeStyles((theme) => ({
     top: '566px',
     animation: `$showBlock 0.75s ${theme.transitions.easing.easeInOut}`
   },
+  "@keyframes addColor": {
+    "0%": {
+      background: theme.palette.common.grey
+    },
+    "100%": {
+      background: theme.palette.common.blue
+    },
+  },
   "@keyframes lineGrow": {
     "0%": {
       background: theme.palette.common.white,
@@ -63,11 +72,11 @@ const useStyles = makeStyles((theme) => ({
   "@keyframes showShadow": {
     "0%": {
       opacity: 0,
-      transform: 'translateY(-30px)',
+      transform: 'translateY(-30px)'
     },
     "100%": {
       opacity: 0.25,
-      transform: 'translateY(0)',
+      transform: 'translateY(0)'
     }
   },
   "@keyframes showBlock": {
