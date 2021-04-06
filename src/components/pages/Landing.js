@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: 0,
     left: '134px',
-    background: '#00FFFF 0% 0% no-repeat padding-box',
+    background: `${theme.palette.common.blue} 0% 0% no-repeat padding-box`,
     mixBlendMode: 'multiply',
     height: '195px',
     width: '195px'

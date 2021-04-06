@@ -7,10 +7,13 @@ import {
 import hovered from '../../images/category hover@2x.png'
 
 const useStyles = makeStyles((theme) => ({
-  image: {
+  imageSection: {
     height: '410px',
     width: '293px',
     position: 'relative'
+  },
+  image: {
+    animation: `$colorImage 0.5s ${theme.transitions.easing.easeIn}`
   },
   imageText: {
     height: '115px',
@@ -30,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translate( -105px, 2px)',
     animation: `$lineGrow 0.75s ${theme.transitions.easing.easeInOut}`
   },
+  text: {
+    fontFamily: 'Raleway',
+    fontWeight: 700,
+    animation: `$boldText 0.6s ${theme.transitions.easing.easeInOut}`
+  },
   shadow: {
     position: 'absolute',
     background: theme.palette.common.blue,
@@ -48,6 +56,22 @@ const useStyles = makeStyles((theme) => ({
     left: '17px',
     top: '566px',
     animation: `$showBlock 0.75s ${theme.transitions.easing.easeInOut}`
+  },
+  "@keyframes colorImage": {
+    "0%": {
+      filter: 'grayscale(100%)'
+    },
+    "100%": {
+      filter: 'grayscale(0)'
+    },
+  },
+  "@keyframes boldText": {
+    "0%": {
+      fontWeight: 100
+    },
+    "100%": {
+      fontWeight: 700
+    },
   },
   "@keyframes addColor": {
     "0%": {
@@ -86,7 +110,6 @@ const useStyles = makeStyles((theme) => ({
     },
     "100%": {
       width: '259px',
-
     }
   }
 }))
@@ -101,15 +124,15 @@ const Skill = ({ label }) => {
       container
       direction="column"
     >
-      <Grid item className={classes.image}>
-        <img src={hovered} alt="digital" />
+      <Grid item className={classes.imageSection}>
+        <img src={hovered} alt="digital" className={classes.image} />
         <div className={classes.line}> </div>
         <div className={classes.shadow}></div>
         <div className={classes.bottomBlock}></div>
 
       </Grid>
       <Grid item className={classes.imageText}>
-        <Typography variant="h3" align="center">
+        <Typography variant="h3" align="center" className={classes.text}>
           {label}
         </Typography>
       </Grid>

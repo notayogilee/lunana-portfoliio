@@ -7,7 +7,7 @@ import {
 import unhovered from '../../images/Artwork 1@2x.png'
 
 const useStyles = makeStyles((theme) => ({
-  image: {
+  imageSection: {
     height: '410px',
     width: '293px',
     position: 'relative'
@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     background: theme.palette.common.grey,
     animation: `$removeColor 0.6s ${theme.transitions.easing.easeInOut}`
+  },
+  text: {
+    fontFamily: 'Raleway',
+    fontWeight: 100,
+    animation: `$thinText 0.6s ${theme.transitions.easing.easeInOut}`
   },
   line: {
     position: 'absolute',
@@ -56,6 +61,14 @@ const useStyles = makeStyles((theme) => ({
     },
     "100%": {
       background: theme.palette.common.grey
+    },
+  },
+  "@keyframes thinText": {
+    "0%": {
+      fontWeight: 700
+    },
+    "100%": {
+      fontWeight: 100
     },
   },
   "@keyframes lineShrink": {
@@ -102,14 +115,14 @@ const Skill = ({ label }) => {
       container
       direction="column"
     >
-      <Grid item className={classes.image}>
-        <img src={unhovered} alt="digital" />
+      <Grid item className={classes.imageSection}>
+        <img src={unhovered} alt="digital" className={classes.image} />
         <div className={classes.line}></div>
         <div className={classes.shadow}></div>
         <div className={classes.bottomBlock}></div>
       </Grid>
       <Grid item className={classes.imageText}>
-        <Typography variant="h3" align="center">
+        <Typography variant="h3" align="center" className={classes.text}>
           {label}
         </Typography>
       </Grid>
