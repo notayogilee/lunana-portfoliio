@@ -129,6 +129,8 @@ const useStyles = makeStyles((theme) => ({
 const Landing = () => {
   const classes = useStyles()
 
+  const skillSet = ['digital', 'graphic', 'frontend']
+
   const [hover, setHover] = useState(false)
   const [hovered, setHovered] = useState(0)
 
@@ -155,43 +157,20 @@ const Landing = () => {
 
       {/* items */}
       <Grid container className={classes.main} justify="space-between" alignItems="flex-start" spacing={0}>
-        <Grid
-          item
-          onMouseEnter={() => {
-            setHovered(1);
-            setHover(true);
-          }}
-          onMouseLeave={handleMouseLeave}>
-          {hover && hovered === 1 ?
-            (<HoveredSkill label={"digital"} />) :
-            (<Skill label={"digital"} />)
-          }
-
-        </Grid>
-        <Grid
-          item
-          onMouseEnter={() => {
-            setHovered(2);
-            setHover(true);
-          }}
-          onMouseLeave={handleMouseLeave}>
-          {hover && hovered === 2 ?
-            (<HoveredSkill label={"graphic"} />) :
-            (<Skill label={"graphic"} />)
-          }
-        </Grid>
-        <Grid
-          item
-          onMouseEnter={() => {
-            setHovered(3);
-            setHover(true);
-          }}
-          onMouseLeave={handleMouseLeave}>
-          {hover && hovered === 3 ?
-            (<HoveredSkill label={"frontend"} />) :
-            (<Skill label={"frontend"} />)
-          }
-        </Grid>
+        {skillSet.map((skill, index) => (
+          <Grid
+            item
+            key={index}
+            onMouseEnter={() => {
+              setHover(true);
+              setHovered(index);
+            }}
+            onMouseLeave={handleMouseLeave}>
+            {hover && hovered === index ?
+              (<HoveredSkill label={skill} />) :
+              (<Skill label={skill} />)}
+          </Grid>
+        ))}
       </Grid>
 
       <div className={classes.aboutSection}>
@@ -216,7 +195,7 @@ const Landing = () => {
           <Typography variant="h4" style={{ fontFamily: 'Raleway', fontWeight: 900 }}>V</Typography>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

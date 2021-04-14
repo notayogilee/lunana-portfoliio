@@ -5,6 +5,7 @@ import {
   Typography
 } from '@material-ui/core'
 import unhovered from '../../images/Artwork 1@2x.png'
+import hovered from '../../images/category hover@2x.png'
 
 const useStyles = makeStyles((theme) => ({
   imageSection: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '26px',
     fontWeight: 'bold',
     background: theme.palette.common.grey,
-    animation: `$removeColor 0.6s ${theme.transitions.easing.easeInOut}`
+    animation: `$removeColor 0.3s ${theme.transitions.easing.easeInOut}`
   },
   text: {
     fontFamily: 'Raleway',
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     width: '259px',
     top: '445px',
     left: '17px',
-    animation: `$hideShadow 0.6s ${theme.transitions.easing.easeInOut}`
+    animation: `$hideShadow 0.3s ${theme.transitions.easing.easeInOut}`
   },
   bottomBlock: {
     position: 'absolute',
@@ -54,6 +55,22 @@ const useStyles = makeStyles((theme) => ({
     left: '17px',
     top: '566px',
     animation: `$hideBlock 0.6s ${theme.transitions.easing.easeOut}`
+  },
+  "@keyframes removeGrayscale": {
+    "0%": {
+      filter: 'grayscale(100%)'
+    },
+    "100%": {
+      filter: 'grayscale(0%)'
+    },
+  },
+  "@keyframes addGrayscale": {
+    "0%": {
+      filter: 'grayscale(0%)'
+    },
+    "100%": {
+      filter: 'grayscale(100%)'
+    },
   },
   "@keyframes removeColor": {
     "0%": {
@@ -110,13 +127,12 @@ const Skill = ({ label }) => {
   const theme = useTheme()
 
   return (
-
     <Grid
       container
       direction="column"
     >
       <Grid item className={classes.imageSection}>
-        <img src={unhovered} alt="digital" className={classes.image} />
+        <img src={unhovered} alt="skill" />
         <div className={classes.line}></div>
         <div className={classes.shadow}></div>
         <div className={classes.bottomBlock}></div>

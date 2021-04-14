@@ -12,9 +12,6 @@ const useStyles = makeStyles((theme) => ({
     width: '293px',
     position: 'relative'
   },
-  image: {
-    animation: `$colorImage 0.5s ${theme.transitions.easing.easeIn}`
-  },
   imageText: {
     height: '115px',
     width: '293px',
@@ -56,14 +53,6 @@ const useStyles = makeStyles((theme) => ({
     left: '17px',
     top: '566px',
     animation: `$showBlock 0.75s ${theme.transitions.easing.easeInOut}`
-  },
-  "@keyframes colorImage": {
-    "0%": {
-      filter: 'grayscale(100%)'
-    },
-    "100%": {
-      filter: 'grayscale(0)'
-    },
   },
   "@keyframes boldText": {
     "0%": {
@@ -119,17 +108,15 @@ const Skill = ({ label }) => {
   const theme = useTheme()
 
   return (
-
     <Grid
       container
       direction="column"
     >
       <Grid item className={classes.imageSection}>
-        <img src={hovered} alt="digital" className={classes.image} />
+        <img src={hovered} alt="skill" />
         <div className={classes.line}> </div>
         <div className={classes.shadow}></div>
         <div className={classes.bottomBlock}></div>
-
       </Grid>
       <Grid item className={classes.imageText}>
         <Typography variant="h3" align="center" className={classes.text}>
