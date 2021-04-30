@@ -1,5 +1,6 @@
 import React from 'react'
 import Tag from './Tag'
+import Links from './Links'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import {
@@ -9,18 +10,26 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    height: '100px',
+    height: '97px',
     width: '100%',
-    position: 'relative'
+    position: 'absolute',
+    top: 0,
+    zIndex: 100
   },
   linkContainer: {
+    position: 'absolute',
     width: 276,
-    // marginRight: 486
+    height: 22,
+    top: 75,
+    left: 1158
   },
   tag: {
     position: 'absolute',
-    left: 393,
-    margin: 0
+    top: '75px',
+    left: '393px',
+    width: '99px',
+    height: '26px'
+
   },
   links: {
     position: 'absolute',
@@ -35,46 +44,15 @@ const Header = () => {
   const classes = useStyles()
 
   return (
-    <Grid
-      container
-      justify="space-between"
-      alignItems="flex-end"
-      className={classes.mainContainer} >
-      <Grid item className={classes.tag}>
-        <Link to="/" underline="none" className={classes.link} >
-          <Tag />
-        </Link>
-      </Grid>
-      <Grid item className={classes.links}>
-        <Grid
-          container
-          justify="space-between"
-          className={classes.linkContainer}
-        >
-          <Grid item>
-            <Link to="/work" underline="none" className={classes.link}>
-              <Typography>
-                work
-          </Typography>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to="/about" underline="none" className={classes.link} >
-              <Typography>
-                about
-          </Typography>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to="/more" underline="none" className={classes.link}>
-              <Typography>
-                more
-          </Typography>
-            </Link>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid >
+    <>
+      <div className={classes.tag}>
+        <Tag />
+      </div>
+
+      <div className={classes.linkContainer}>
+        <Links />
+      </div>
+    </>
   )
 }
 

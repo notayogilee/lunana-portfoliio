@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     backgroundColor: theme.palette.common.black,
     height: 370,
-    width: '100%',
-    position: 'relative',
-    bottom: 0
+    width: 1920,
+    position: 'absolute',
+    top: '2170px'
   },
   tag: {
     position: 'absolute',

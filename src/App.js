@@ -13,13 +13,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Header />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/about" component={About} />
           <Route exact path="/work" component={Work} />
           <Route exact path="/more" component={More} />
         </Switch>
+        <Header />
         <Footer />
       </Router>
     </ThemeProvider>

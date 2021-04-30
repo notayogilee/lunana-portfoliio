@@ -13,7 +13,7 @@ import about from '../../images/about index@2x.png'
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     height: 2070,
-    width: '100%',
+    width: 1920,
     position: 'relative'
   },
   hi: {
@@ -42,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
     height: '469px',
     width: '330px',
     top: '227px',
-    right: '448px'
+    left: '1142px',
+    opacity: 1
   },
   intro: {
     position: 'absolute',
@@ -60,19 +61,18 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '3rem'
   },
   workSection: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     position: 'absolute',
-    height: '237px',
-    width: '87px',
+    width: '237px',
+    height: '87px',
     top: '530px',
-    right: '361px'
-  },
-  work: {
-    transform: 'rotate(90deg)',
-    fontWeight: 700
+    left: '1472px',
+    right: '362px',
+    transform: 'matrix(0, 1, -1, 0, 0, 0)',
+    textAlign: 'left',
+    font: 'normal normal bold 72px/87px Programme',
+    letterSpacing: '0px',
+    color: theme.palette.common.black,
+    opacity: '1'
   },
   main: {
     height: '576px',
@@ -155,6 +155,10 @@ const Landing = () => {
         <img src={hero} alt="hero" />
       </div>
 
+      <Typography variant="h3" component="div" className={classes.workSection}>{'work >'}</Typography>
+
+
+
       {/* items */}
       <Grid container className={classes.main} justify="space-between" alignItems="flex-start" spacing={0}>
         {skillSet.map((skill, index) => (
@@ -188,14 +192,7 @@ const Landing = () => {
           </Typography>
         </div>
       </div>
-
-      <div className={classes.workSection}>
-        <Typography variant="h3" component="div" className={classes.work}>work</Typography>
-        <div>
-          <Typography variant="h4" style={{ fontFamily: 'Raleway', fontWeight: 900 }}>V</Typography>
-        </div>
-      </div>
-    </div >
+    </div>
   )
 }
 

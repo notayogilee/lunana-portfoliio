@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
   imageSection: {
     height: '410px',
     width: '293px',
-    position: 'relative'
+    position: 'relative',
+    cursor: 'pointer'
   },
   imageText: {
     height: '115px',
